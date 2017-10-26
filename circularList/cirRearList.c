@@ -27,8 +27,11 @@ int CreateList(LinkList *L, int n)
         p = (LinkList)malloc(sizeof(Node));
         p->data = 0;
         p->next = *L;
-        p->rear = p;
         (*L)->next = p;
+    }
+	
+    if(i == n){
+       p->rear = p; 
     }
 
     return 1;
