@@ -9,7 +9,7 @@ void InitStack(LinkStack *S){
     }
     S = (LinkStack*)malloc(sizeof(LinkStack));
     S->count = 0;
-    S->top = NULL;
+    S->top = NULL;  //初始化传进来的S的top指向为NULL，但是出了函数后就会变成一个可用的地址
 }
 
 int EmptyStack(LinkStack S)
@@ -25,7 +25,7 @@ ElemType GetStack(LinkStack *S)
 {
     if(S == NULL){
         exit(1);
-    }else if(S->count == 0){
+    }else if(S->count == 0){    //开始用S->top一起判断，但是在初始化完了后，进入函数，这个指向会指向一个可用的地址，导致判断失败
         printf("the stack is empty!\n");
         return -1;
     }
